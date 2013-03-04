@@ -10,7 +10,7 @@ class xnomad {
     source   => 'http://www.unsanity.net/shadowkiller-13.dmg'
   }
 
-  file { '/Users/${::boxen_user}/.xnomad':
+  file { "/Users/${::boxen_user}/.xnomad":
     source   => 'puppet:///modules/puppet-xnomad/.xnomad'
   }
 
@@ -27,7 +27,7 @@ class xnomad {
 
   osx_login_item { 'Xnomad':
     path     => '/Applications/Xnomad.app',
-    require  => File['/Users/${::boxen_user}/.xnomad']
+    require  => File["/Users/${::boxen_user}/.xnomad"]
   }
   osx_login_item { 'Shadowkiller':
     path     => '/Applications/Shadowkiller.app'
