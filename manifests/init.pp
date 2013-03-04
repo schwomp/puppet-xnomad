@@ -11,18 +11,18 @@ class xnomad {
   }
 
   file { "/Users/${::boxen_user}/.xnomad":
-    source   => 'puppet:///modules/puppet-xnomad/.xnomad'
+    source   => 'puppet:///modules/xnomad/.xnomad'
   }
 
 
   # Replace rounded corners on 10.8.2 (untested on others)
   if $::macosx_productversion == '10.8.2' {
     file { '/System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/Resources/ArtFile.bin':
-      source => 'puppet:///modules/puppet-xnomad/ArtFile.bin'
+      source => 'puppet:///modules/xnomad/ArtFile.bin'
     }
 
     file { '/System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/Resources/SArtFile.bin':
-      source => 'puppet:///modules/puppet-xnomad/SArtFile.bin'
+      source => 'puppet:///modules/xnomad/SArtFile.bin'
     }
   }
 
