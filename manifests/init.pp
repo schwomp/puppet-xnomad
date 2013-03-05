@@ -36,14 +36,19 @@ class xnomad {
       owner  => root,
       group  => wheel,
     }
+  } else {
+    notice('Xnomad - 10.8.2 required to get system files')
   }
 
   osx_login_item { 'Xnomad':
     path     => '/Applications/Xnomad.app',
-    require  => File["/Users/${::boxen_user}/.xnomad"]
+    require  => [
+      File["/Users/${::boxen_user}/.xnomad"],
+      Package['Xnomad']]
   }
   osx_login_item { 'Shadowkiller':
-    path     => '/Applications/Shadowkiller.app'
+    path    => '/Applications/ShadowKiller.app',
+    require => Package['Shadowkiller'],
   }
 
 }
