@@ -46,7 +46,7 @@ class xnomad {
       File["/Users/${::boxen_user}/.xnomad"],
       Package['Xnomad']]
   }
-  osx_login_item { 'Shadowkiller':
+  osx_login_item { 'ShadowKiller':
     path    => '/Applications/ShadowKiller.app',
     require => Package['Shadowkiller'],
   }
